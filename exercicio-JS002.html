@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descubra se você vota</title>
+</head>
+<body>
+    <style>
+        body {
+            background-color: #1b4885;
+            font: normal 14pt Arial;
+            font-style: normal;
+            color: white;
+        }
+    </style>
+    <h1>Você deverá votar este ano?</h1>
+    Insira sua idade: <input type="number" name="idade" id="idade">
+    <input type="button" value="Verificar" onclick="verificar()">
+    <div id="res"></div>
+    <script>
+        function verificar() {
+            var idade2 = document.querySelector('input#idade')
+            var res = document.querySelector('div#res')
+            var idadeAtual = Number(idade2.value)
+            res.innerHTML = `<p>Você tem <strong>${idadeAtual}</strong> anos de idade!</p>`
+            if (idadeAtual < 16) {                
+            res.innerHTML += `Não vota`
+            } else if (idadeAtual < 18 || idadeAtual > 65) {
+            res.innerHTML += `Voto opcional`
+            } else {
+            res.innerHTML += `Voto obrigatório!`
+            }
+        }
+    </script>
+</body>
+</html>
